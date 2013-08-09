@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+            $(".ex .hide").click(function(){
+            $(this).parents(".ex").hide("slow");
+            });        
+            
+            $("#button1").click(function(){
+            $(".ex").show("slow");
+            }); 
+            
+            $("#button2").click(function(){
+            $(".ex").toggle("slow");
+            }); 
+});
+</script>
+<style type="text/css">
+div.ex
+{
+ background-color:#e5eecc;
+ padding:7px;
+ border:solid 1px #c3c3c3
+}
+</style>
+</head>
+
+<body>
+
+<h3>中国办事处</h3>
+<div class="ex">
+<button class="hide" type="button">隐藏</button>
+<p>
+联系人 : david <br />
+地址   ： 第五大街200号，纽约 <br />
+</p> 
+</div>
+
+<h3>美国办事处</h3>
+<div class="ex">
+<button class="hide" type="button">隐藏</button>
+<p>
+联系人 : 张三 <br />
+地址   ： 八大胡同，北京 <br />
+</p> 
+</div>
+
+<button type="button" id="button1">显示</button>
+<button type="button" id="button2">显示/隐藏</button>
+</body>
+</html>

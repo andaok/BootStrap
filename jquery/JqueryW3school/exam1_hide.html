@@ -1,0 +1,58 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+                    $("#button1").click(function(){
+                    $("p").hide();
+                    });
+                    
+                    $("#button2").click(function(){
+                    $(this).hide();
+                    });
+                    
+                    $("#button3").click(function(){
+                    $("#test").hide();
+                    });
+                    
+                    $("#button4").click(function(){
+                    $(".test").hide();
+                    });
+                    
+                    $("#button5").click(function(){
+                    $("p.test").hide();
+                    });
+                    
+                    $("#button6").click(function(){
+                    $("p#test").hide();
+                    });
+                    
+                    $("#button7").click(function(){
+                    $("p").css("background-color","red")
+                    });
+                    
+                    $("#button8").click(function(){
+                    $(this).text("hei hei,new text");
+                    });
+            });
+</script>
+</head>
+
+<body>
+<p>This is a paragraph</p>
+<p>This is another paragraph</p>
+<p class="test">this p class test</p>
+<p id="test">this p id test</p>
+<h1 id="test">This is h id test</h1>
+<h2 class="test">this h class test</h2>
+
+<button type="button" id="button1">Click me hide p</button> <br>
+<button type="button" id="button2">Click me hide myself</button> <br>
+<button type="button" id="button3">Click me hide id test</button> <br>
+<button type="button" id="button4">Click me hide class test</button> <br>
+<button type="button" id="button5">Click me hide p's class test</button> <br>
+<button type="button" id="button6">Click me hide p's id test</button> <br>
+<button type="button" id="button7">Click me change all p backcolor</button> <br>
+<button type="button" id="button8">Click me change myself text </button> <br>
+</body>
+</html>

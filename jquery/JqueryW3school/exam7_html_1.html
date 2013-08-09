@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+            $("#btn1").click(function(){
+            alert("Text: " + $("#test").text());
+            });
+            
+            $("#btn2").click(function(){
+            alert("Html: " + $("#test").html());
+            });
+            
+            $("#btn3").click(function(){
+            alert("Input value :" + $("#age").val());
+            });
+            
+            $("#btn4").click(function(){
+            alert("Attr :" + $("#w3s").attr("href"))
+            });
+            
+
+            $("#btn5").click(function(){
+            $("#test").text("new hello word!");
+            });
+            
+            $("#btn6").click(function(){
+            $("#test").html("new <b>hello word!</b>");
+            });
+            
+            $("#btn7").click(function(){
+            $("#age").val("18");
+            });
+
+            $("#btn8").click(function(){
+            $("#w3s").attr({
+            "href" : "http://www.w3school.com.cn/jquery",
+            "title": "w3school jquery 教程"
+            });
+            });
+});
+</script>
+</head>
+<body>
+
+<p id="test">这是段落中的<b>粗体</b></p>
+<p>年龄：<input type="text" id="age" value="10"></p>
+
+<p><a href="http://www.w3school.com" id="w3s">To W3SCHOOL</a></p> 
+
+<button id="btn1">显示文本</button>
+<button id="btn2">显示HTML</button>
+<button id="btn3">获得输入字段的值</button>
+<button id="btn4">获得元素属性值</button>
+
+<button id="btn5">设置文本</button>
+<button id="btn6">设置html</button>
+<button id="btn7">设置值</button>
+
+<button id="btn8">改变href和title值</button>
+
+
+</body>
+
+</html>
