@@ -2,31 +2,85 @@
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-            $("#obtainurls").click(function(){
-                             $.getJSON("http://127.0.0.1:8087/flush?jsoncallback=?",{name:"jack"},function(result){
-                                   $.each(result, function(i, field){
-                                       $("#show").append(field + " ");
-                                   });
+$(document).ready(function(){            
+            $("#FlushCDN").click(function(){
+                             var textarea_array = ($("#urls").val()).split("\n");
+                             var urlstype = $('input[name="urlstype"]').filter(":checked").val();
+                             $.getJSON("http://192.168.0.111:8087/flushcdn?format=json&jsoncallback=?","urls="+textarea_array+"&urlstype="+urlstype,function(data,status){
+                                   
+                                   if (data.head == "fail")
+                                     {
+                                       alert(data.body)
+                                     }
+                                   else
+                                     {
+                                       Flushing(); 
+                                     }
+                                       
                              });
             });
+            
+            $("#FlushSquid").click(function(){
+                               setInterval("ShowStdout()",1000);
+            });
 });
+
+function Flushing(){
+         $("#FlushingDiv table tbody").html(function(i,origHtml){
+                  return "<tr><td>1</td><td>2</td><td>3</td></tr>" + origHtml;
+         });
+}
+
+function ShowStdout(){
+          $.get("tmp.txt",function(data,status){
+                  $("#tmpshow").html(data);
+                             
+          });
+}
+
 </script>
 
+
 <style type="text/css">
-p.title 
+p.title
 {
-  font-size:80%;
+  font-size:90%;
 }
 </style>
 
 </head>
 <body>
 
-<p id="show"></p>
+<input type="radio" name="urlstype" value=0 checked> File
+<input type="radio" name="urlstype" value=1> Dir </br>
 
 <textarea id="urls" rows="10" cols="100"></textarea> </br>
-<button id="obtainurls" type="button">刷新缓存</button>
+<button id="FlushSquid" type="button">FlushSquid</button>
+<button id="FlushCDN" type="button">FlushCDN</button>
+
+<p class="title">Flushing</p>
+<hr width=150 size=2 align=left noshade>
+<div id="FlushingDiv">
+<table border="1">
+<tbody>
+<tr>
+  <td>100</td>
+  <td>200</td>
+  <td>300</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>500</td>
+  <td>600</td>
+</tr>
+</tbody>
+</table>
+<div>
+
+<p class="title">Wait To Flush</p>
+<hr width=150 size=2 align=left noshade>
+
+<pre id="tmpshow">hello,world!!</pre>
 
 </body>
 </html>
