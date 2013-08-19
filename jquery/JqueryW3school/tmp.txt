@@ -28,6 +28,11 @@ hello jack
 hello jack
 hello jack
 hello jack
+<<<<<<< HEAD
 xixixix
 xixixix
 xixixix
+=======
+hello jack
+hello jack
+>>>>>>> 1d9d2dd7a6a06c1329979401001fafd5149c1225
